@@ -3,7 +3,6 @@
   -GtkToolButton-icon-spacing: 4;
   -GtkTextView-error-underline-color: #FC4138;
   -GtkScrolledWindow-scrollbar-spacing: 0;
-  -GtkScrolledWindow-scrollbars-within-bevel: 1;
   -GtkToolItemGroup-expander-size: 11;
   -GtkTreeView-expander-size: 11;
   -GtkTreeView-horizontal-separator: 4;
@@ -746,11 +745,7 @@ NemoWindow .primary-toolbar NemoPathBar.linked:not(.vertical):not(.path-bar) > b
 
 menuitem.button.flat,
 modelbutton.flat, button:link, button:visited, button:link:hover, button:link:active, button:link:checked, button:visited:hover, button:visited:active, button:visited:checked, menu arrow,
-.menu arrow, notebook tab button, notebook tab button:hover, notebook tab button:active, notebook tab button:active:hover, .app-notification button.flat, .app-notification button.sidebar-button,
-.app-notification.frame button.flat,
-.app-notification.frame button.sidebar-button, .app-notification button.flat:disabled, .app-notification button.sidebar-button:disabled,
-.app-notification.frame button.flat:disabled,
-.app-notification.frame button.sidebar-button:disabled, TerminalWindow .notebook tab:active button, TerminalWindow .notebook tab:hover button, TerminalWindow .notebook tab:active button:hover, TerminalWindow .notebook tab:hover button:hover, TerminalWindow .notebook tab:active button:active, TerminalWindow .notebook tab:hover button:active {
+.menu arrow, notebook tab button, notebook tab button:hover, notebook tab button:active, notebook tab button:active:hover, .app-notification button.flat, .app-notification button.sidebar-button, .app-notification button.flat:disabled, .app-notification button.sidebar-button:disabled, TerminalWindow .notebook tab:active button, TerminalWindow .notebook tab:hover button, TerminalWindow .notebook tab:active button:hover, TerminalWindow .notebook tab:hover button:hover, TerminalWindow .notebook tab:active button:active, TerminalWindow .notebook tab:hover button:active {
   border-color: transparent;
   background-color: transparent;
   background-image: none;
@@ -2313,44 +2308,36 @@ row, row.activatable {
   row:hover, row.activatable:hover {
     transition: none; }
 
-.app-notification,
-.app-notification.frame {
+.app-notification {
   padding: 10px;
   color: #BAC3CF;
   background-color: rgba(53, 57, 69, 0.95);
-  background-clip: border-box; }
-  .app-notification border,
-  .app-notification.frame border {
-    border-radius: 0 0 2px 2px;
-    border-width: 0 1px 1px 1px;
-    border-style: solid;
-    border-color: rgba(31, 33, 40, 0.95); }
-  .app-notification button,
-  .app-notification.frame button {
+  background-clip: border-box;
+  border-radius: 0 0 2px 2px;
+  border-width: 0 1px 1px 1px;
+  border-style: solid;
+  border-color: rgba(31, 33, 40, 0.95); }
+  .app-notification border {
+    border: none; }
+  .app-notification button {
     color: #BAC3CF;
     outline-color: rgba(186, 195, 207, 0.3);
     border-color: rgba(26, 28, 34, 0.35);
     background-color: rgba(102, 109, 132, 0.35); }
-    .app-notification button.flat, .app-notification button.sidebar-button,
-    .app-notification.frame button.flat,
-    .app-notification.frame button.sidebar-button {
+    .app-notification button.flat, .app-notification button.sidebar-button {
       border-color: rgba(82, 148, 226, 0); }
-    .app-notification button:hover,
-    .app-notification.frame button:hover {
+    .app-notification button:hover {
       color: #BAC3CF;
       outline-color: rgba(186, 195, 207, 0.3);
       border-color: rgba(26, 28, 34, 0.35);
       background-color: rgba(119, 127, 151, 0.45); }
-    .app-notification button:active, .app-notification button:checked,
-    .app-notification.frame button:active,
-    .app-notification.frame button:checked {
+    .app-notification button:active, .app-notification button:checked {
       color: #ffffff;
       outline-color: rgba(255, 255, 255, 0.3);
       border-color: rgba(26, 28, 34, 0.35);
       background-color: #5294E2;
       background-clip: padding-box; }
-    .app-notification button:disabled,
-    .app-notification.frame button:disabled {
+    .app-notification button:disabled {
       color: #5d626e;
       border-color: rgba(26, 28, 34, 0.35);
       background-color: rgba(102, 109, 132, 0.2); }
