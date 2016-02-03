@@ -58,8 +58,12 @@ $osd_insensitive_bg_color: darken($osd_bg_color, 3%);
 $osd_insensitive_fg_color: mix($osd_fg_color, opacify($osd_bg_color, 1), 30%);
 $osd_borders_color: transparentize(black, 0.3);
 
+$dash_running_dot: #e0e0e0;
+
 $panel_bg: darken($dark_sidebar_bg, 4.7%);
 $panel_fg: $dark_sidebar_fg;
+$panel_text_color: #616161;
+$panel_text_color_hover: #eeeeee;
 
 $entry_bg: if($variant=='light', $base_color, lighten($base_color, 0%));
 $entry_border: if($variant == 'light', #cfd6e6, darken($borders_color, 0%));

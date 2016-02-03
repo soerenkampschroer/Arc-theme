@@ -125,18 +125,17 @@ GtkTextView {
 
 .entry {
   border: 1px solid;
-  padding: 5px 8px 6px;
+  padding: 5px 8px;
   border-radius: 3px;
   transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   color: #D5D5D5;
   border-color: #121212;
   background-color: #242424;
   background-image: linear-gradient(to bottom, #242424); }
-  .header-bar .entry {
-    padding: 6px; }
-  .entry.image {
-    padding-left: 3px;
-    padding-right: 3px; }
+  .entry.image.left {
+    padding-left: 0; }
+  .entry.image.right {
+    padding-right: 0; }
   .entry.flat, .entry.flat:focus {
     padding: 2px;
     color: #D5D5D5;
@@ -259,8 +258,6 @@ GtkSearchEntry.entry {
   outline-color: rgba(213, 213, 213, 0.3);
   border-color: #121212;
   background-color: #292929; }
-  .header-bar .button {
-    padding: 6px 11px; }
   .button.flat {
     border-color: transparent;
     background-color: transparent;
@@ -312,7 +309,8 @@ GtkSearchEntry.entry {
     outline-color: rgba(186, 195, 207, 0.3);
     background-color: rgba(33, 33, 33, 0.95);
     border-color: rgba(13, 13, 13, 0.95); }
-    .button.osd.image-button {
+    .button.osd.image-button, .header-bar .button.osd.titlebutton,
+    .titlebar .button.osd.titlebutton {
       padding: 10px; }
     .button.osd:hover {
       color: #80CBC4; }
@@ -457,23 +455,23 @@ GtkSearchEntry.entry {
       background-color: rgba(41, 41, 41, 0.55); }
       .button.destructive-action:insensitive > GtkLabel {
         color: inherit; }
-  .button.image-button {
-    padding: 8px; }
-  .header-bar .button.image-button {
-    padding: 6px 9px; }
+  .button.image-button, .header-bar .button.titlebutton,
+  .titlebar .button.titlebutton {
+    padding: 7px; }
+  .header-bar .button.image-button, .header-bar .button.titlebutton {
+    padding: 7px 10px; }
   .button.text-button {
     padding-left: 16px;
     padding-right: 16px; }
-  .header-bar .button.text-button {
-    padding: 6px 16px; }
-  .button.text-button.image-button {
-    padding: 4px 8px 5px; }
-    .button.text-button.image-button GtkLabel:first-child {
+  .button.text-button.image-button, .header-bar .button.text-button.titlebutton,
+  .titlebar .button.text-button.titlebutton {
+    padding: 5px 8px; }
+    .button.text-button.image-button GtkLabel:first-child, .header-bar .button.text-button.titlebutton GtkLabel:first-child,
+    .titlebar .button.text-button.titlebutton GtkLabel:first-child {
       padding-left: 8px; }
-    .button.text-button.image-button GtkLabel:last-child {
+    .button.text-button.image-button GtkLabel:last-child, .header-bar .button.text-button.titlebutton GtkLabel:last-child,
+    .titlebar .button.text-button.titlebutton GtkLabel:last-child {
       padding-right: 8px; }
-  .header-bar .button.text-button.image-button {
-    padding: 6px 16px; }
   .stack-switcher > .button {
     outline-offset: -3px; }
     .stack-switcher > .button > GtkLabel {
@@ -482,16 +480,13 @@ GtkSearchEntry.entry {
     .stack-switcher > .button > GtkImage {
       padding-left: 6px;
       padding-right: 6px;
-      padding-top: 5px;
-      padding-bottom: 5px; }
-    .stack-switcher > .button .header-bar > GtkLabel {
-      padding: 6px 10px; }
+      padding-top: 3px;
+      padding-bottom: 3px; }
     .stack-switcher > .button.text-button {
       padding: 5px 10px; }
-    .header-bar .stack-switcher > .button.text-button {
-      padding: 6px 10px; }
-    .stack-switcher > .button.image-button {
-      padding: 1px 3px; }
+    .stack-switcher > .button.image-button, .header-bar .stack-switcher > .button.titlebutton,
+    .titlebar .stack-switcher > .button.titlebutton {
+      padding: 2px 4px; }
     .stack-switcher > .button.needs-attention:active > .label,
     .stack-switcher > .button.needs-attention:active > GtkImage,
     .stack-switcher > .button.needs-attention:checked > .label,
@@ -752,9 +747,9 @@ GtkSearchEntry.entry {
 GtkComboBox {
   -GtkComboBox-arrow-scaling: 0.5;
   -GtkComboBox-shadow-type: none; }
-  GtkComboBox > .button {
+  GtkComboBox > .the-button-in-the-combobox {
     padding-top: 3px;
-    padding-bottom: 4px; }
+    padding-bottom: 3px; }
   GtkComboBox:insensitive {
     color: rgba(213, 213, 213, 0.45); }
   GtkComboBox .separator.vertical, GtkComboBox GtkPlacesSidebar.sidebar .vertical.view.separator, GtkPlacesSidebar.sidebar GtkComboBox .vertical.view.separator {
@@ -809,7 +804,7 @@ GtkComboBox {
   background-color: #191919; }
 
 .header-bar {
-  padding: 7px 7px 6px 7px;
+  padding: 5px 5px 4px 5px;
   border-width: 0 0 1px;
   border-style: solid;
   border-radius: 0;
@@ -822,10 +817,12 @@ GtkComboBox {
   .header-bar:backdrop {
     color: rgba(217, 209, 209, 0.5); }
   .header-bar .title {
-    padding: 0px 12px; }
+    padding-left: 12px;
+    padding-right: 12px; }
   .header-bar .subtitle {
     font-size: smaller;
-    padding: 0 12px; }
+    padding-left: 12px;
+    padding-right: 12px; }
   .header-bar.selection-mode, .header-bar.titlebar.selection-mode {
     color: #ffffff;
     background-color: rgba(128, 203, 196, 0.95);
@@ -1193,18 +1190,24 @@ GtkComboBox {
     border-color: rgba(2, 2, 2, 0.67); }
 
 .path-bar .button {
-  padding-left: 6px;
-  padding-right: 6px; }
+  padding: 5px 10px; }
+  .path-bar .button:first-child {
+    padding-left: 10px; }
+  .path-bar .button:last-child {
+    padding-right: 10px; }
   .path-bar .button:only-child {
-    padding-left: 12px;
-    padding-right: 12px; }
+    padding-left: 14px;
+    padding-right: 14px; }
   .path-bar .button GtkLabel:last-child {
-    padding-left: 2px; }
-  .path-bar .button GtkLabel:first-child {
-    padding-right: 2px; }
-  .path-bar .button GtkLabel:only-child, .path-bar .button GtkLabel {
-    padding-right: 4px;
     padding-left: 4px; }
+  .path-bar .button GtkLabel:first-child {
+    padding-right: 4px; }
+  .path-bar .button GtkLabel:only-child, .path-bar .button GtkLabel {
+    padding-right: 0;
+    padding-left: 0; }
+  .path-bar .button GtkImage {
+    padding-top: 2px;
+    padding-bottom: 1px; }
 
 GtkTreeView.view {
   -GtkTreeView-grid-line-width: 1;
@@ -2120,7 +2123,7 @@ GtkFileChooserDialog .dialog-action-box {
 
 .sidebar, .sidebar .view {
   border: none;
-  background-color: #212121; }
+  background-color: #262626; }
   .sidebar:selected, .sidebar .view:selected {
     background-color: #80CBC4; }
 
@@ -2278,7 +2281,7 @@ GtkColorSwatch#add-color-button {
     background-image: none; }
 
 GtkColorButton.button {
-  padding: 4px; }
+  padding: 5px; }
   GtkColorButton.button GtkColorSwatch {
     border-radius: 0; }
 
@@ -2410,7 +2413,7 @@ GtkVolumeButton.button {
 
 .header-bar .button.titlebutton,
 .titlebar .button.titlebutton {
-  padding: 6px 4px;
+  padding: 8px 4px;
   border-color: transparent;
   background-color: transparent;
   background-image: none;
@@ -2456,28 +2459,28 @@ GtkVolumeButton.button {
     background-image: -gtk-scaled(url("assets/titlebutton-close-active-dark.png"), url("assets/titlebutton-close-active-dark@2.png")); }
   .header-bar .button.titlebutton.maximize,
   .titlebar .button.titlebutton.maximize {
-    background-image: -gtk-scaled(url("assets/titlebutton-max-dark.png"), url("assets/titlebutton-max-dark@2.png")); }
+    background-image: -gtk-scaled(url("assets/titlebutton-maximize-dark.png"), url("assets/titlebutton-maximize-dark@2.png")); }
   .header-bar .button.titlebutton.maximize:backdrop,
   .titlebar .button.titlebutton.maximize:backdrop {
-    background-image: -gtk-scaled(url("assets/titlebutton-max-backdrop-dark.png"), url("assets/titlebutton-max-backdrop-dark@2.png")); }
+    background-image: -gtk-scaled(url("assets/titlebutton-maximize-backdrop-dark.png"), url("assets/titlebutton-maximize-backdrop-dark@2.png")); }
   .header-bar .button.titlebutton.maximize:hover,
   .titlebar .button.titlebutton.maximize:hover {
-    background-image: -gtk-scaled(url("assets/titlebutton-max-hover-dark.png"), url("assets/titlebutton-max-hover-dark@2.png")); }
+    background-image: -gtk-scaled(url("assets/titlebutton-maximize-hover-dark.png"), url("assets/titlebutton-maximize-hover-dark@2.png")); }
   .header-bar .button.titlebutton.maximize:active,
   .titlebar .button.titlebutton.maximize:active {
-    background-image: -gtk-scaled(url("assets/titlebutton-max-active-dark.png"), url("assets/titlebutton-max-active-dark@2.png")); }
+    background-image: -gtk-scaled(url("assets/titlebutton-maximize-active-dark.png"), url("assets/titlebutton-maximize-active-dark@2.png")); }
   .header-bar .button.titlebutton.minimize,
   .titlebar .button.titlebutton.minimize {
-    background-image: -gtk-scaled(url("assets/titlebutton-min-dark.png"), url("assets/titlebutton-min-dark@2.png")); }
+    background-image: -gtk-scaled(url("assets/titlebutton-minimize-dark.png"), url("assets/titlebutton-minimize-dark@2.png")); }
   .header-bar .button.titlebutton.minimize:backdrop,
   .titlebar .button.titlebutton.minimize:backdrop {
-    background-image: -gtk-scaled(url("assets/titlebutton-min-backdrop-dark.png"), url("assets/titlebutton-min-backdrop-dark@2.png")); }
+    background-image: -gtk-scaled(url("assets/titlebutton-minimize-backdrop-dark.png"), url("assets/titlebutton-minimize-backdrop-dark@2.png")); }
   .header-bar .button.titlebutton.minimize:hover,
   .titlebar .button.titlebutton.minimize:hover {
-    background-image: -gtk-scaled(url("assets/titlebutton-min-hover-dark.png"), url("assets/titlebutton-min-hover-dark@2.png")); }
+    background-image: -gtk-scaled(url("assets/titlebutton-minimize-hover-dark.png"), url("assets/titlebutton-minimize-hover-dark@2.png")); }
   .header-bar .button.titlebutton.minimize:active,
   .titlebar .button.titlebutton.minimize:active {
-    background-image: -gtk-scaled(url("assets/titlebutton-min-active-dark.png"), url("assets/titlebutton-min-active-dark@2.png")); }
+    background-image: -gtk-scaled(url("assets/titlebutton-minimize-active-dark.png"), url("assets/titlebutton-minimize-active-dark@2.png")); }
 
 .view:selected, .view:selected:focus, .view:selected:hover, .label:selected, .label:selected:focus, .label:selected:hover, .grid-child:selected, .menuitem.button.flat:active, .menuitem.button.flat:selected, .list-row:selected, GtkEntry.gb-command-bar-entry.entry.flat:selected, GtkEntry.gb-command-bar-entry.entry.flat:selected:focus {
   background-image: none;

@@ -535,7 +535,7 @@ StScrollBar {
 
     &:active, &.selected {
       color: $fg_color;
-      background-color: transparent;
+      background-color: black;
       border-image: url("#{$asset_path}/menu/menu-hover.svg") 9 9 1 1;
     }
 
@@ -659,13 +659,14 @@ StScrollBar {
 
     &:outlined {
       padding: 8px;
-      border: 1px solid $selected_bg_color;
+      border: 1px solid transparent;
+      background-color: transparentize($selected_bg_color, 0.6);
     }
 
     &:selected {
       color: $selected_fg_color;
-      background-color: $selected_bg_color;
-      border: 1px solid $selected_bg_color;
+      background-color: transparentize($selected_bg_color, 0.6);
+      border: 1px solid transparent;
 
     }
   }
@@ -772,9 +773,9 @@ StScrollBar {
   height: 2.1em;
   min-height: 27px;
   background-gradient-direction: none;
-  background-color: transparent;
+  background-color: $panel_bg;
   border-bottom-width: 0;
-  border-image: url('common-assets/panel/panel.svg') 1 1 1 1;
+  //border-image: url('common-assets/panel/panel.svg') 1 1 1 1;
 
   // Fix dynamic top bar extension
   &.dynamic-top-bar-white-btn { border-image: none; }
@@ -789,7 +790,7 @@ StScrollBar {
   &:overview { border-image: url('common-assets/panel/panel-overview.svg') 1 1 1 1; }
 
   #panelLeft, #panelCenter { // spacing between activities<>app menu and such
-    spacing: 8px;
+    spacing: 0px;
   }
 
   .panel-corner {
@@ -813,7 +814,7 @@ StScrollBar {
     -natural-hpadding: 10px;
     -minimum-hpadding: 6px;
     font-weight: bold;
-    color: $selected_fg_color;
+    color: $panel_text_color;
     transition-duration: 100ms;
     border-bottom-width: 1px;
     border-color: transparent;
@@ -826,18 +827,18 @@ StScrollBar {
     }
 
     &:hover {
-      color: $selected_fg_color;
-      background-color: transparentize(black, 0.83);
+      color: $panel_text_color;
+      background-color: transparent;
       border-bottom-width: 1px;
       border-color: transparent;
     }
 
     &:active, &:overview, &:focus, &:checked {
-      color: $selected_fg_color;
+      color: $panel_text_color_hover;
       background-color: $selected_bg_color;
       box-shadow: none;
       border-bottom-width: 1px;
-      border-color: black;
+      border-color: transparent;
 
       & > .system-status-icon { icon-shadow: none; }
     }
@@ -1330,9 +1331,10 @@ StScrollBar {
 .search-entry {
   width: 320px;
   padding: 7px 9px;
-  border-radius: 20px;
-  border: 1px solid transparentize(black, 0.75);
-  background-color: transparentize($entry_bg, 0.1);
+  border-radius: 15px;
+  border: 1px solid transparent;
+  color: transparentize($bg_color, 0.6);
+  background-color: transparentize($panel_bg, 0.9);
 
   &:focus {
     padding: 7px 9px;
@@ -1341,18 +1343,18 @@ StScrollBar {
   .search-entry-icon {
     icon-size: 16px;
     padding: 0 4px;
-    color: $fg_color;
+    color: transparentize($bg_color, 0.6);
   }
 
   &:hover, &:focus {
-    color: $selected_fg_color;
-    caret-color: $selected_fg_color;
-    background-color: $selected_bg_color;
+    color: transparentize($bg_color, 0.2);
+    caret-color: transparentize($bg_color, 0.2);
+    background-color: transparentize($panel_bg, 0.9);
 
-    selection-background-color: $selected_fg_color;
-    selected-color: $selected_bg_color;
+    selection-background-color: transparentize($panel_bg, 0.9);
+    selected-color: transparentize($bg_color, 0.2);
 
-    .search-entry-icon { color: $selected_fg_color; }
+    .search-entry-icon { color: transparentize($bg_color, 0.2); }
   }
 }
 
@@ -1405,8 +1407,8 @@ StScrollBar {
 #dash {
   font-size: 1em;
   color: $osd_fg_color;
-  background-color: $dark_sidebar_bg;
-  border-color: rgba(0,0,0,0.4);
+  background-color: transparentize($selected_bg_color, 0.6);
+  border-color: transparent;
   padding: 6px 1px 6px 0px;
   border-radius: 0 3px 3px 0;
 
@@ -1447,7 +1449,7 @@ StScrollBar {
   border-radius: 3px;
   padding: 4px 12px;
   color: $selected_fg_color;
-  background-color: transparentize(black, 0.3);
+  background-color: transparentize($selected_bg_color, 0.6);
   text-align: center;
   -x-offset: 3px;
 
@@ -1471,7 +1473,7 @@ StScrollBar {
   .right &:hover .overview-icon,
   .bottom &:hover .overview-icon,
   .top &:hover .overview-icon {
-    background-color: $selected_bg_color;
+    background-color: transparent;
   }
 
   &:active .overview-icon,
@@ -1487,6 +1489,7 @@ StScrollBar {
     height: 2px;
     margin-bottom: 6px;
     background-color: $selected_bg_color;
+    opacity: 0;
   }
 }
 
@@ -1494,22 +1497,22 @@ StScrollBar {
 
   .overview-icon {
     padding: 11px;
-    background-color: transparentize(black, 0.5);
+    background-color: transparent;
     border-radius: 2px;
     border: 0px solid;
   }
 
   &:hover .overview-icon {
-    background-color: transparentize(black, 0.3);
-    color: $selected_bg_color;
+    background-color: transparent;
+    color: #ffffff;
   }
 
   &:active .overview-icon,
   &:active .show-apps-icon,
   &:checked .overview-icon,
   &:checked .show-apps-icon {
-    color: $selected_fg_color;
-    background-color: $selected_bg_color;
+    color: #ffffff;
+    //background-color: $selected_bg_color;
     box-shadow: none;
     transition-duration: 0ms;
   }

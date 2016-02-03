@@ -10,3 +10,4 @@ configure
 install-sh
 missing
 .idea
+compile-and-deploy.sh
