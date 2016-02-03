@@ -58,7 +58,7 @@
      id="layer1"
      transform="translate(0,-1020.3622)">
     <rect
-       style="display:inline;opacity:0.81;fill:none;fill-opacity:1;stroke:#161a26;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="display:inline;opacity:0.0;fill:none;fill-opacity:1;stroke:#424242;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect4164-4-3"
        width="23"
        height="21.999889"
@@ -67,7 +67,7 @@
        rx="2.0000005"
        ry="1.9999999" />
     <rect
-       style="display:inline;opacity:0.95;fill:#353945;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="display:inline;opacity:0.6;fill:#424242;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect4164"
        width="22"
        height="20.999971"
@@ -78,7 +78,7 @@
     <g
        transform="translate(-425.99995,658.36226)"
        id="g4271"
-       style="display:inline;opacity:0.65">
+       style="display:inline;opacity:0.0">
       <rect
          ry="8"
          rx="8"
